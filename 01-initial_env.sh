@@ -4,15 +4,16 @@
 DIR_NAME=${PWD##*/}
 CONFIG_DIR=conf.d
 DATA_DIR=data
-PORT
+PASSWORD=xxx # Gantilah 'xxx' dengan password Anda
+PORT=nnnn # Gantilah 'nnnn' sesuai dengan nomor port yang digunakan
 
 
 # Buat atau perbarui file .env dengan nama direktori
 echo "CONTAINER_NAME=$DIR_NAME" > .env
-echo "MYSQL_ROOT_PASSWORD=xxx" >> .env  # Gantilah 'xxx' dengan password Anda
+echo "MYSQL_ROOT_PASSWORD=$PASSWORD" >> .env
 echo "CONFIG_DIR=$CONFIG_DIR" >> .env
 echo "DATA_DIR=$DATA_DIR" >> .env
-echo "PORT=3321" >> .env
+echo "PORT=$PORT" >> .env
 
 # Periksa apakah jaringan "my_network" sudah ada
 NETWORK_EXISTS=$(docker network ls | grep my_network)
